@@ -1,0 +1,11 @@
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
+const UserSchema = new Schema({
+  
+  email: { type: String, required: true, unique: true },
+  password: { type: String, required: true },
+});
+
+const Admin=mongoose.model("admin", UserSchema); 
+Admin.createIndexes();  // for  making each user as unique user 
+module.exports = Admin;
